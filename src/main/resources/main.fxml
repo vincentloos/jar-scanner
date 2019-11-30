@@ -7,18 +7,18 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="220.0" maxWidth="425.0" minHeight="220.0" minWidth="425.0" prefHeight="220.0" prefWidth="425.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<Pane fx:controller="dev.vloos.javahccs.Main" maxHeight="220.0" maxWidth="425.0" minHeight="220.0" minWidth="425.0" prefHeight="220.0" prefWidth="425.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TextField fx:id="txtScanPath" layoutX="143.0" layoutY="15.0" />
+      <TextField fx:id="txtScanPath" layoutX="143.0" layoutY="15.0" onKeyReleased="#updateScanPath" />
       <Label layoutX="21.0" layoutY="20.0" text="Path to scan" />
       <CheckBox fx:id="chkScanSubfolders" disable="true" layoutX="143.0" layoutY="63.0" mnemonicParsing="false" text="Scan subfolders" />
-      <Button fx:id="btnBrowseScanPath" layoutX="335.0" layoutY="15.0" mnemonicParsing="false" text="Browse" />
+      <Button fx:id="btnBrowseScanPath" layoutX="335.0" layoutY="15.0" mnemonicParsing="false" onAction="#browsePath" text="Browse" />
       <Label layoutX="21.0" layoutY="106.0" text="Output report to" />
       <TextField fx:id="txtReportPath" layoutX="143.0" layoutY="101.0" />
-      <Button fx:id="btnBrowseReportPath" layoutX="335.0" layoutY="101.0" mnemonicParsing="false" text="Browse" />
+      <Button fx:id="btnBrowseReportPath" layoutX="335.0" layoutY="101.0" mnemonicParsing="false" onAction="#browseOutput" text="Browse" />
       <Slider fx:id="sldScanIntensity" blockIncrement="1.0" layoutX="143.0" layoutY="146.0" majorTickUnit="2.0" max="3.0" min="1.0" minorTickCount="1" prefHeight="17.0" prefWidth="261.0" showTickMarks="true" snapToTicks="true" value="3.0" />
       <Label layoutX="21.0" layoutY="144.0" text="Scan intensity" />
-      <Button fx:id="btnScan" layoutX="279.0" layoutY="179.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="125.0" text="Start scan" />
-      <Button fx:id="btnExit" layoutX="143.0" layoutY="179.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="125.0" text="Exit" />
+      <Button fx:id="btnScan" layoutX="279.0" layoutY="179.0" mnemonicParsing="false" onAction="#startScan" prefHeight="31.0" prefWidth="125.0" text="Start scan" />
+      <Button fx:id="btnExit" layoutX="143.0" layoutY="179.0" mnemonicParsing="false" onAction="#exit" prefHeight="31.0" prefWidth="125.0" text="Exit" />
    </children>
 </Pane>
