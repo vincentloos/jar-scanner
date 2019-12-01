@@ -5,10 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Slider;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import javax.swing.*;
@@ -22,10 +19,11 @@ public class Main extends Application {
         launch(args);
     }
 
-    @FXML Button btnBrowsePath, btnBrowseReportPath, btnExit, btnScan;
+    @FXML Button btnBrowsePath, btnBrowseReportPath, btnScan;
     @FXML Slider sldScanIntensity;
-    @FXML TextField txtScanPath, txtScanReportPath;
+    @FXML TextField txtScanPath, txtReportPath;
     @FXML CheckBox chkScanSubfolders;
+    @FXML ProgressBar progressBar;
 
     @Override
     public void start(Stage stage) throws IOException, ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException {
@@ -39,13 +37,8 @@ public class Main extends Application {
     }
 
     @FXML
-    private void exit() {
-        System.exit(1);
-    }
-
-    @FXML
-    private void startScan() {
-        //TODO Start scan
+    private void startScan() throws IOException {
+        Scan.run(txtScanPath.getText(), txtReportPath.getText(), chkScanSubfolders.isSelected(), (int) sldScanIntensity.getValue(), progressBar);
     }
 
     @FXML
@@ -57,7 +50,7 @@ public class Main extends Application {
         chooser.setFileFilter(filter);
         int choice = chooser.showOpenDialog(null);
         if (choice != JFileChooser.APPROVE_OPTION) return;
-        txtScanReportPath.setText(chooser.getSelectedFile().toString());
+        txtReportPath.setText(chooser.getSelectedFile().toString());
     }
 
     @FXML

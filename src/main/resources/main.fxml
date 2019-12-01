@@ -3,11 +3,12 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane fx:controller="dev.vloos.javahccs.Main" maxHeight="220.0" maxWidth="425.0" minHeight="220.0" minWidth="425.0" prefHeight="220.0" prefWidth="425.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="220.0" maxWidth="425.0" minHeight="220.0" minWidth="425.0" prefHeight="220.0" prefWidth="425.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.vloos.javahccs.Main">
    <children>
       <TextField fx:id="txtScanPath" layoutX="143.0" layoutY="15.0" onKeyReleased="#updateScanPath" />
       <Label layoutX="21.0" layoutY="20.0" text="Path to scan" />
@@ -19,6 +20,6 @@
       <Slider fx:id="sldScanIntensity" blockIncrement="1.0" layoutX="143.0" layoutY="146.0" majorTickUnit="2.0" max="3.0" min="1.0" minorTickCount="1" prefHeight="17.0" prefWidth="261.0" showTickMarks="true" snapToTicks="true" value="3.0" />
       <Label layoutX="21.0" layoutY="144.0" text="Scan intensity" />
       <Button fx:id="btnScan" layoutX="279.0" layoutY="179.0" mnemonicParsing="false" onAction="#startScan" prefHeight="31.0" prefWidth="125.0" text="Start scan" />
-      <Button fx:id="btnExit" layoutX="143.0" layoutY="179.0" mnemonicParsing="false" onAction="#exit" prefHeight="31.0" prefWidth="125.0" text="Exit" />
+      <ProgressBar fx:id="scanProgress" layoutX="22.0" layoutY="179.0" prefHeight="31.0" prefWidth="250.0" progress="0.0" />
    </children>
 </Pane>
