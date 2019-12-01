@@ -7,16 +7,20 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="190.0" maxWidth="435.0" minHeight="190.0" minWidth="435.0" prefHeight="190.0" prefWidth="435.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.vloos.javahccs.Main">
+<Pane maxHeight="230.0" maxWidth="590.0" minHeight="230.0" minWidth="590.0" prefHeight="230.0" prefWidth="590.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dev.vloos.javahccs.Main">
    <children>
-      <TextField fx:id="txtScanPath" layoutX="164.0" layoutY="14.0" onKeyReleased="#updateScanPath" />
-      <Label layoutX="21.0" layoutY="20.0" text="File or folder to scan" />
-      <CheckBox fx:id="chkScanSubfolders" disable="true" layoutX="164.0" layoutY="62.0" mnemonicParsing="false" text="Scan subfolders" />
-      <Button fx:id="btnBrowseScanPath" layoutX="356.0" layoutY="14.0" mnemonicParsing="false" onAction="#browsePath" text="Browse" />
-      <Label layoutX="21.0" layoutY="106.0" text="Output report to" />
-      <TextField fx:id="txtReportPath" layoutX="164.0" layoutY="100.0" />
-      <Button fx:id="btnBrowseReportPath" layoutX="356.0" layoutY="100.0" mnemonicParsing="false" onAction="#browseOutput" text="Browse" />
-      <Button fx:id="btnScan" layoutX="300.0" layoutY="146.0" mnemonicParsing="false" onAction="#startScan" prefHeight="31.0" prefWidth="125.0" text="Start scan" />
-      <ProgressBar fx:id="progressBar" layoutX="21.0" layoutY="146.0" prefHeight="31.0" prefWidth="272.0" progress="0.0" />
+      <TextField fx:id="txtScanPath" layoutX="164.0" layoutY="14.0" onKeyReleased="#updateScanPath" prefHeight="31.0" prefWidth="279.0" />
+      <Label layoutX="21.0" layoutY="20.0" text="File or folder to scan:" />
+      <CheckBox fx:id="chkScanSubfolders" disable="true" layoutX="164.0" layoutY="56.0" mnemonicParsing="false" text="Scan subfolders" />
+      <Button fx:id="btnBrowseScanPath" layoutX="543.0" layoutY="14.0" mnemonicParsing="false" onAction="#browsePath" text="File" />
+      <Label layoutX="21.0" layoutY="155.0" text="Output report to:" />
+      <TextField fx:id="txtReportPath" layoutX="164.0" layoutY="150.0" prefHeight="31.0" prefWidth="343.0" />
+      <Button fx:id="btnBrowseReportPath" layoutX="517.0" layoutY="150.0" mnemonicParsing="false" onAction="#browseOutput" text="Browse" />
+      <Button fx:id="btnScan" layoutX="461.0" layoutY="196.0" mnemonicParsing="false" onAction="#startScan" prefHeight="31.0" prefWidth="125.0" text="Start scan" />
+      <ProgressBar fx:id="progressBar" layoutX="19.0" layoutY="196.0" prefHeight="31.0" prefWidth="433.0" progress="0.0" />
+      <TextField fx:id="txtTriggers" layoutX="164.0" layoutY="88.0" onKeyReleased="#updateScanPath" prefHeight="31.0" prefWidth="421.0" text="password=,password =,pass=,pass =,pswd,db_password" />
+      <Label layoutX="19.0" layoutY="93.0" text="Trigger keywords:" />
+      <Button fx:id="btnBrowseScanDirectoryPath" layoutX="452.0" layoutY="14.0" mnemonicParsing="false" onAction="#browseDirectoryPath" text="Directory" />
+      <Label disable="true" layoutX="164.0" layoutY="119.0" text="Seperated by comma, spaces count as character" />
    </children>
 </Pane>
