@@ -20,7 +20,6 @@ public class Main extends Application {
     }
 
     @FXML Button btnBrowsePath, btnBrowseReportPath, btnScan;
-    @FXML Slider sldScanIntensity;
     @FXML TextField txtScanPath, txtReportPath;
     @FXML CheckBox chkScanSubfolders;
     @FXML ProgressBar progressBar;
@@ -29,7 +28,7 @@ public class Main extends Application {
     public void start(Stage stage) throws IOException, ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException {
         UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         Parent root = FXMLLoader.load(getClass().getResource("/main.fxml"));
-        Scene scene = new Scene(root, 425, 220);
+        Scene scene = new Scene(root, 425, 190);
         stage.setResizable(false);
         stage.setTitle("Java HCCS");
         stage.setScene(scene);
@@ -37,17 +36,15 @@ public class Main extends Application {
     }
 
     @FXML
-    private void startScan() throws IOException {
-        Scan.run(txtScanPath.getText(), txtReportPath.getText(), chkScanSubfolders.isSelected(), (int) sldScanIntensity.getValue(), progressBar);
+    private void startScan() throws Exception {
+        Scan.run(txtScanPath.getText(), txtReportPath.getText(), chkScanSubfolders.isSelected(), progressBar);
     }
 
     @FXML
     private void browseOutput() {
         JFileChooser chooser = new JFileChooser();
-        chooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         JFileChooser jf = new JFileChooser();
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("Text files", "txt", "text");
-        chooser.setFileFilter(filter);
         int choice = chooser.showOpenDialog(null);
         if (choice != JFileChooser.APPROVE_OPTION) return;
         txtReportPath.setText(chooser.getSelectedFile().toString());
@@ -75,6 +72,7 @@ public class Main extends Application {
             chkScanSubfolders.setSelected(false);
             chkScanSubfolders.setDisable(true);
         }
+
     }
 
 }
