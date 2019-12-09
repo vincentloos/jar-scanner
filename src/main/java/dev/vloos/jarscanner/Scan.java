@@ -1,4 +1,4 @@
-package dev.vloos.javahccs;
+package dev.vloos.jarscanner;
 
 import javafx.application.Platform;
 import javafx.scene.control.Alert;
@@ -33,7 +33,7 @@ public final class Scan {
             return;
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Java HCCS");
+            alert.setTitle("JAR Scanner");
             alert.setHeaderText("Invalid value");
             alert.setContentText("Could not find input file or folder");
             alert.showAndWait();
@@ -44,14 +44,14 @@ public final class Scan {
     private static void scan(List<File> files, ProgressBar progressBar, String outputPath, String[] triggers) {
         if (files.equals(null) || files.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Java HCCS");
+            alert.setTitle("JAR Scanner");
             alert.setHeaderText("Invalid value");
             alert.setContentText("Directory does not contain jar files");
             alert.showAndWait();
             return;
         } else if (!(new File(outputPath).exists()) || !(new File(outputPath).isDirectory()) ){
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Java HCCS");
+            alert.setTitle("JAR Scanner");
             alert.setHeaderText("Invalid value");
             alert.setContentText("Output directory does not exist");
             alert.showAndWait();
@@ -61,7 +61,7 @@ public final class Scan {
         new Thread() {
             public void run() {
                 String reportId = UUID.randomUUID().toString().substring(0, 4);
-                String reportName = outputPath + "\\Java-HCCS-Report-" + reportId + ".txt";
+                String reportName = outputPath + "\\JAR-Scanner-Report-" + reportId + ".txt";
                 try {
                     new PrintWriter(reportName, "UTF-8").close();
                 } catch (FileNotFoundException | UnsupportedEncodingException e) {
@@ -117,7 +117,7 @@ public final class Scan {
         }.start();
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Java HCCS");
+        alert.setTitle("JAR Scanner");
         alert.setHeaderText("Scan started");
         alert.setContentText("You just started a new scan. This may take a while depending on the size. When the scan finishes the report will automatically open.");
         alert.show();

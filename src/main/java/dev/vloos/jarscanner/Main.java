@@ -1,4 +1,4 @@
-package dev.vloos.javahccs;
+package dev.vloos.jarscanner;
 
 import javafx.application.Application;
 import javafx.fxml.FXML;
@@ -34,7 +34,7 @@ public class Main extends Application {
         Scene scene = new Scene(root, 590, 230);
         stage.setResizable(false);
         stage.getIcons().add(new Image("/icon.png"));
-        stage.setTitle("Java HCCS");
+        stage.setTitle("JAR Scanner");
         stage.setScene(scene);
         stage.show();
         mainStage = stage;

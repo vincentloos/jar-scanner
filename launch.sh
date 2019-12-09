@@ -1,1 +1,1 @@
-java -jar build/libs/java-hccs.jar
+java -jar build/libs/jar-scanner.jar
